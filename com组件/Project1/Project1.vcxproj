@@ -193,11 +193,20 @@
   </ItemDefinitionGroup>
 
   <ItemGroup>
-    <ClCompile Include="SimpleCOM.cpp" />
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="SimpleCOM.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="StandardCOM.cpp" />
+    <ClCompile Include="TestStandardCOM.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SimpleCOM.h" />
+    <ClInclude Include="StandardCOM.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="main.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </None>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
