@@ -1,0 +1,13 @@
+# EditorConfig 文件 - 确保正确的文件编码
+
+root = true
+
+[*]
+charset = utf-8-bom
+end_of_line = crlf
+insert_final_newline = true
+
+[*.{cpp,h}]
+charset = utf-8-bom
+indent_style = space
+indent_size = 4

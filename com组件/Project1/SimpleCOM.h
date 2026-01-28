@@ -3,13 +3,11 @@
 
 #pragma once  // 防止头文件被重复包含
 
-// 包含 Windows COM 的基础头文件
-// unknwn.h 包含了 IUnknown 接口的定义，这是所有 COM 接口的基类
-#include <unknwn.h>
+// 包含 Windows 基础头文件
+#include <Windows.h>
 
-// 包含 GUID 定义所需的头文件
-// GUID 是全局唯一标识符，用于识别 COM 接口和组件
-#include <guiddef.h>
+// 包含 COM 基础头文件
+#include <objbase.h>
 
 
 // =====================================================
@@ -29,8 +27,9 @@ static const IID IID_ISimpleCalculator =
 // COM 接口必须继承自 IUnknown（这是 COM 的基本规则）
 // IUnknown 提供了三个基础方法：QueryInterface、AddRef、Release
 
-// DECLSPEC_NOVTABLE 告诉编译器不生成虚函数表，因为这是纯接口
-class DECLSPEC_NOVTABLE ISimpleCalculator : public IUnknown
+// __declspec(novtable) 告诉编译器不生成虚函数表，因为这是纯接口
+// 这样可以减少代码大小
+class __declspec(novtable) ISimpleCalculator : public IUnknown
 {
 public:
     // 这是我们自定义的方法：两个整数相加
